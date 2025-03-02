@@ -22,7 +22,8 @@ services:
               count: all
               capabilities: [gpu]
     networks:
-      - dmz_net
+      dmz_net:
+        ipv4_address: 172.25.60.3
     
     devices:
       - "/dev/dri:/dev/dri"
