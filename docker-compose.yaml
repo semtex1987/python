@@ -21,6 +21,8 @@ services:
             - driver: nvidia
               count: all
               capabilities: [gpu]
+    networks:
+      - dmz_net
     
     devices:
       - "/dev/dri:/dev/dri"
@@ -69,3 +71,7 @@ services:
         - SYNCTHING_TRANSPORT_PORT_HOST=${SYNCTHING_TRANSPORT_PORT_HOST:-22999}
         - SYNCTHING_URL=${SYNCTHING_URL:-}
         #- PROVISIONING_SCRIPT=https://raw.githubusercontent.com/ai-dock/python/main/config/provisioning/default.sh
+
+networks:
+  dmz_net:
+    external: true
